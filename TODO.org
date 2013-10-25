@@ -14,3 +14,6 @@ Destroy all the shell history.
 packaging the box.
 ** TODO Edit the MOTD (/etc/motd)
 Add a pretty MOTD.
+** TODO Document Virtualbox settings
+Virtualbox needs some specific settings to boot a FreeBSD ISO. Add that
+information to the README so people can start from scratch on their own.
