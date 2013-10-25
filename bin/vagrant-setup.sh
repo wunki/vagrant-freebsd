@@ -48,7 +48,7 @@ fetch -o /etc/rc.conf https://raw.github.com/wunki/vagrant-freebsd/master/etc/rc
 fetch -o /etc/resolv.conf https://raw.github.com/wunki/vagrant-freebsd/master/etc/resolv.conf
 
 # loader.conf
-fetch -o /etc/loader.conf https://raw.github.com/wunki/vagrant-freebsd/master/boot/loader.conf
+fetch -o /boot/loader.conf https://raw.github.com/wunki/vagrant-freebsd/master/boot/loader.conf
 
 # motd
 fetch -o /etc/motd https://raw.github.com/wunki/vagrant-freebsd/master/etc/motd
