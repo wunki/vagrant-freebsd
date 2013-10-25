@@ -6,6 +6,13 @@
 > 
 > _(Whatever is said in Latin sounds profound.)_
 
+I love FreeBSD but it's a lot of work to get it running correctly on
+Vagrant. That's a shame, because more people should experience the quality of
+FreeBSD, the convenience of [jails] and a modern filesystem like [ZFS].
+
+Well, now you can! With this Vagrant box you get the latest FreeBSD with ZFS
+by only copying a single file.
+
 **Table of Contents**
 
 - [Freebsd on Vagrant](#freebsd-on-vagrant)
@@ -109,6 +116,8 @@ The above is released under the BSD license -- who would have thought!
 Meaning, do whatever you want, but I would sure appreciate if you contribute
 any improvements back to this repository.
 
+[jails]: http://www.freebsd.org/doc/handbook/jails.html
+[ZFS]: http://en.wikipedia.org/wiki/ZFS
 [Vagrantfile]: https://github.com/wunki/vagrant-freebsd/blob/master/Vagrantfile
 [mfsBSD]: http://mfsbsd.vx.sk/
 [9.2-RELEASE-amd64 special edition]: http://mfsbsd.vx.sk/
