@@ -2,7 +2,9 @@
 ** TODO Restore the pkg configuration to default
 We are setting the pkg site to the wunki server. This should be restored to
 default.
-** TODO Don't show the boot menu
+** DONE Don't show the boot menu
+   CLOSED: [2013-10-25 Fri 13:13]
+   - State "DONE"       from "TODO"       [2013-10-25 Fri 13:13]
 The boot menu takes ten seconds to show, that's just a waste of time in a
 headless VM.
 ** TODO Cleanup pkg's after installation
