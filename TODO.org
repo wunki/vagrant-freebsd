@@ -7,9 +7,13 @@ default.
    - State "DONE"       from "TODO"       [2013-10-25 Fri 13:13]
 The boot menu takes ten seconds to show, that's just a waste of time in a
 headless VM.
-** TODO Cleanup pkg's after installation
+** DONE Cleanup pkg's after installation
+   CLOSED: [2013-10-25 Fri 13:39]
+   - State "DONE"       from "TODO"       [2013-10-25 Fri 13:39]
 Clean the package cache because it saves some space.
-** TODO Destroy all history
+** DONE Destroy all history
+   CLOSED: [2013-10-25 Fri 13:35]
+   - State "DONE"       from "TODO"       [2013-10-25 Fri 13:35]
 Destroy all the shell history.
 ** TODO Minimize disk space
 =dd= all the empty space and remove it again. This also saves space when

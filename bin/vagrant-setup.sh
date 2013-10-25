@@ -65,3 +65,19 @@ fetch -o /etc/motd https://raw.github.com/wunki/vagrant-freebsd/master/etc/motd
 
 # Remove the history
 cat /dev/null /root/.history
+
+# Clean packages
+pkg clean -y
+
+# Empty out tmp directory
+rm -rf /tmp/*
+
+# Try to make it even smaller
+while true; do
+    read -p "Would you like me to zero out all data to reduce box size? [y/n] (This could take a while...)" yn
+    case $yn in
+        [Yy]* ) echo "You said yes"; break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
