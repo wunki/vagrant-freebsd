@@ -47,3 +47,5 @@ fetch -o /etc/loader.conf https://raw.github.com/wunki/vagrant-freebsd/master/bo
 # make.conf
 fetch -o /etc/make.conf https://raw.github.com/wunki/vagrant-freebsd/master/etc/make.conf
 
+# motd
+fetch -o /etc/motd https://raw.github.com/wunki/vagrant-freebsd/master/etc/motd

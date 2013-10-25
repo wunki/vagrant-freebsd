@@ -14,7 +14,9 @@ Destroy all the shell history.
 ** TODO Minimize disk space
 =dd= all the empty space and remove it again. This also saves space when
 packaging the box.
-** TODO Edit the MOTD (/etc/motd)
+** DONE Edit the MOTD (/etc/motd)
+   CLOSED: [2013-10-25 Fri 13:20]
+   - State "DONE"       from "TODO"       [2013-10-25 Fri 13:20]
 Add a pretty MOTD.
 ** TODO Document Virtualbox settings
 Virtualbox needs some specific settings to boot a FreeBSD ISO. Add that
