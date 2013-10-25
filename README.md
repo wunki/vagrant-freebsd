@@ -6,12 +6,12 @@
 > 
 > _(Whatever is said in Latin sounds profound.)_
 
-I love FreeBSD but it's a lot of work to get it running correctly on
-Vagrant. That's a shame, because more people should experience the quality of
+I love [FreeBSD] but it's a lot of work to get it running correctly on
+[Vagrant]. That's a shame, because more people should experience the quality of
 FreeBSD, the convenience of [jails] and a modern filesystem like [ZFS].
 
-Well, now you can! With this Vagrant box you get the latest FreeBSD with ZFS
-by only copying a single file.
+Well, now you can! With this Vagrant box you get a fully tuned, latest FreeBSD
+with ZFS by copying a single file.
 
 **Table of Contents**
 
@@ -34,7 +34,7 @@ run the VM from and you are done. The box will be downloaded for you.
 ## Create your own FreeBSD Box
 
 This is for people who want to have their own customized box, instead of the
-box available for you.
+box I made for you with the scripts in this repository.
 
 The FreeBSD boxse are build from the excellent [mfsBSD] site, namely the
 [9.2-RELEASE-amd64 special edition] ISO's. Download this ISO and create a new
@@ -116,6 +116,8 @@ The above is released under the BSD license -- who would have thought!
 Meaning, do whatever you want, but I would sure appreciate if you contribute
 any improvements back to this repository.
 
+[FreeBSD]: http://www.freebsd.org/
+[Vagrant]: http://www.vagrantup.com/
 [jails]: http://www.freebsd.org/doc/handbook/jails.html
 [ZFS]: http://en.wikipedia.org/wiki/ZFS
 [Vagrantfile]: https://github.com/wunki/vagrant-freebsd/blob/master/Vagrantfile
