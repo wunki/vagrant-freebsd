@@ -16,8 +16,9 @@
 		- [Configuration](#configuration)
 		- [Package for Vagrant](#package-for-vagrant)
 	- [What's Next?](#what's-next)
+	- [Credits](#credits)
 	- [License](#license)
-
+    
 ## Quickstart
 
 Simply copy the [Vagrantfile] from this repository to the project you want to
@@ -92,8 +93,7 @@ bit more. In Linux you can do:
 
 You can now package the box by running the following on your local machine:
 
-    vagrant package --base <name-of-your-virtual-machine> --output
-    <name-of-your-box>
+    vagrant package --base <name-of-your-virtual-machine> --output <name-of-your-box>
 
 ## What's Next?
 
