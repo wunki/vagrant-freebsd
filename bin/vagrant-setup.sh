@@ -44,3 +44,6 @@ fetch -o /etc/resolv.conf https://raw.github.com/wunki/vagrant-freebsd/master/et
 # loader.conf
 fetch -o /etc/loader.conf https://raw.github.com/wunki/vagrant-freebsd/master/boot/loader.conf
 
+# make.conf
+fetch -o /etc/make.conf https://raw.github.com/wunki/vagrant-freebsd/master/etc/make.conf
+
