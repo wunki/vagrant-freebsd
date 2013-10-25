@@ -21,10 +21,9 @@ Get an IP adress:
 
     dhclient vtnet0
 
-On your local machinie, start a HTTP server from the repository to fetch the
-file into your FreeBSD installation:
+In your FreeBSD box, fetch the installation script:
 
-    python -m SimpleHTTPServer 8080
+    fetch -o /tmp/freebsd-installation.sh https://raw.github.com/wunki/vagrant-freebsd/master/vagrant-installation.sh
 
 Inside your FreeBSD VM, fetch the installation file.
 
