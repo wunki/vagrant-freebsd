@@ -82,5 +82,5 @@ do whatever you want, but I would sure appreciate if you contribute any
 improvements back to this repository.
 
 [mfsBSD]: http://mfsbsd.vx.sk/
-[9.2-RELEASE-amd64 special edition]: http://mfsbsd.vx.sk/files/iso/9/amd64/mfsbsd-se-9.2-RELEASE-amd64.iso
+[9.2-RELEASE-amd64 special edition]: http://mfsbsd.vx.sk/
 [TODO.org]: https://github.com/wunki/vagrant-freebsd/blob/master/TODO.org
