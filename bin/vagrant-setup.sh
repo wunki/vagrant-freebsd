@@ -74,7 +74,7 @@ rm -rf /tmp/*
 
 # Try to make it even smaller
 while true; do
-    read -p "Would you like me to zero out all data to reduce box size? [y/n] " yn
+    read -p "Would you like me to zero out all data to reduce box size? [y/N] " yn
     case $yn in
         [Yy]* ) dd if=/dev/zero of=/tmp/ZEROES bs=1M; break;;
         [Nn]* ) break;;
