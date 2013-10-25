@@ -37,51 +37,17 @@ echo "%vagrant ALL=(ALL) NOPASSWD: ALL" >> /usr/local/etc/sudoers
 mkdir /home/vagrant/.ssh
 touch /home/vagrant/.ssh/authorized_keys
 chown vagrant:vagrant /home/vagrant/.ssh
+
+# Get the public key and save it in the `authorized_keys`
+fetch -o /home/vagrant/.ssh/authorized_keys https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub
 chown vagrant:vagrant /home/vagrant/.ssh/authorized_keys
-cat <<EOF > /home/vagrant/.ssh/authorized_keys
-ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA6NF8iallvQVp22WDkTkyrtvp9eWW6A8YVr+kz4TjGYe7gHzIw+niNltGEFHzD8+v1I2YJ6oXevct1YeS0o9HZyN1Q9qgCgzUFtdOKLv6IedplqoPkcmF0aYet2PkEDo3MlTBckFXPITAMzF8dJSIFo9D8HfdOV0IAdx4O7PtixWKn5y2hMNG0zQPyUecp4pzC6kivAIhyfHilFR61RGL+GPXQ2MWZWFYbAGjyiYJnAmCP3NOTd0jMZEnDkbUvxhMmBYSdETk1rRgm+R4LOzFUGaHqHDLKLX+FIPKcF96hrucXzcWyLbIbEgE98OHlnVYCzRdK8jlqm8tehUc9c9WhQ== vagrant insecure public key
-EOF
 
 # rc.conf
-cat <<EOF > /etc/rc.conf
-# Set dumpdev to "AUTO" to enable crash dumps, "NO" to disable
-dumpdev="NO"
-
-# Networking
-hostname=vagrant-freebsd-92
-ifconfig_vtnet0_name="em0"
-ifconfig_vtnet1_name="em1"
-ifconfig_em0="DHCP"
-
-# ZFS
-zfs_enable="YES"
-
-# SSH
-sshd_enable="YES"
-
-# Virtualbox
-vboxguest_enable="YES"
-vboxservice_enable="YES"
-
-# NFS
-rpcbind_enable="YES"
-nfs_client_enable="YES"
-
-# fsck to protect against unclean shutdowns
-fsck_y_enable="YES"
-
-EOF
-
-# loader.conf
-cat <<EOF > /boot/loader.conf
-zfs_load="YES"
-vfs.root.mountfrom="zfs:tank/root"
-EOF
+fetch -o /etc/rc.conf https://raw.github.com/wunki/vagrant-freebsd/master/etc/rc.conf
 
 # resolv.conf
-cat <<EOF > /etc/resolv.conf
-search vagrant-freebsd-92
-nameserver 8.8.8.8
-nameserver 8.8.4.4
-EOF
+fetch -o /etc/resolv.conf https://raw.github.com/wunki/vagrant-freebsd/master/etc/resolv.conf
+
+# loader.conf
+fetch -o /etc/rc.conf https://raw.github.com/wunki/vagrant-freebsd/master/boot/loader.conf
 
