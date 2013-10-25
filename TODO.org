@@ -15,7 +15,9 @@ Clean the package cache because it saves some space.
    CLOSED: [2013-10-25 Fri 13:35]
    - State "DONE"       from "TODO"       [2013-10-25 Fri 13:35]
 Destroy all the shell history.
-** TODO Minimize disk space
+** DONE Minimize disk space
+   CLOSED: [2013-10-25 Fri 13:45]
+   - State "DONE"       from "TODO"       [2013-10-25 Fri 13:45]
 =dd= all the empty space and remove it again. This also saves space when
 packaging the box.
 ** DONE Edit the MOTD (/etc/motd)

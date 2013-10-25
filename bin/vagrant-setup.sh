@@ -64,7 +64,7 @@ fetch -o /etc/motd https://raw.github.com/wunki/vagrant-freebsd/master/etc/motd
 ################################################################################
 
 # Remove the history
-cat /dev/null /root/.history
+cat /dev/null > /root/.history
 
 # Clean packages
 pkg clean -y
@@ -74,10 +74,16 @@ rm -rf /tmp/*
 
 # Try to make it even smaller
 while true; do
-    read -p "Would you like me to zero out all data to reduce box size? [y/n] (This could take a while...)" yn
+    read -p "Would you like me to zero out all data to reduce box size? [y/n] " yn
     case $yn in
-        [Yy]* ) echo "You said yes"; break;;
-        [Nn]* ) exit;;
+        [Yy]* ) dd if=/dev/zero of=/tmp/ZEROES bs=1M; break;;
+        [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
     esac
 done
+
+# Empty out tmp directory
+rm -rf /tmp/*
+
+# DONE!
+echo "We are all done. Poweroff the box and package it up with Vagrant."
