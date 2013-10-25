@@ -23,7 +23,7 @@ Get an IP adress:
 
 In your FreeBSD box, fetch the installation script:
 
-    fetch -o /tmp/freebsd-installation.sh https://raw.github.com/wunki/vagrant-freebsd/master/vagrant-installation.sh
+    fetch -o /tmp/freebsd-installation.sh https://raw.github.com/wunki/vagrant-freebsd/master/bin/vagrant-installation.sh
 
 Inside your FreeBSD VM, fetch the installation file.
 
