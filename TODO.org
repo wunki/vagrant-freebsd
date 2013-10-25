@@ -24,9 +24,13 @@ packaging the box.
    CLOSED: [2013-10-25 Fri 13:20]
    - State "DONE"       from "TODO"       [2013-10-25 Fri 13:20]
 Add a pretty MOTD.
-** TODO Document Virtualbox settings
+** DONE Document Virtualbox settings
+   CLOSED: [2013-10-25 Fri 20:17]
+   - State "DONE"       from "TODO"       [2013-10-25 Fri 20:17]
 Virtualbox needs some specific settings to boot a FreeBSD ISO. Add that
 information to the README so people can start from scratch on their own.
-** TODO Upload the box Vagrantbox.es
+** DONE Upload the box Vagrantbox.es
+   CLOSED: [2013-10-25 Fri 20:18]
+   - State "DONE"       from "TODO"       [2013-10-25 Fri 20:18]
 Add the box to Vagrantbox.es to spread the reach of the most awesome operating
 system out there.
