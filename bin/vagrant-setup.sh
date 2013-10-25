@@ -3,6 +3,12 @@
 # Install the pkg management tool
 pkg_add -r pkg
 
+# make.conf
+fetch -o /etc/make.conf https://raw.github.com/wunki/vagrant-freebsd/master/etc/make.conf
+
+# convert pkg
+pkg2ng
+
 # Setup pkgng
 cp /usr/local/etc/pkg.conf.sample /usr/local/etc/pkg.conf
 sed -i '' -e 's/http:\/\/pkg.freebsd.org\/${ABI}\/latest/http:\/\/pkg.wunki.org\/9_2-amd64-vagrant-default/g' /usr/local/etc/pkg.conf
@@ -44,8 +50,7 @@ fetch -o /etc/resolv.conf https://raw.github.com/wunki/vagrant-freebsd/master/et
 # loader.conf
 fetch -o /etc/loader.conf https://raw.github.com/wunki/vagrant-freebsd/master/boot/loader.conf
 
-# make.conf
-fetch -o /etc/make.conf https://raw.github.com/wunki/vagrant-freebsd/master/etc/make.conf
-
 # motd
 fetch -o /etc/motd https://raw.github.com/wunki/vagrant-freebsd/master/etc/motd
+
+# cleanup
