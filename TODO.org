@@ -17,3 +17,6 @@ Add a pretty MOTD.
 ** TODO Document Virtualbox settings
 Virtualbox needs some specific settings to boot a FreeBSD ISO. Add that
 information to the README so people can start from scratch on their own.
+** TODO Upload the box Vagrantbox.es
+Add the box to Vagrantbox.es to spread the reach of the most awesome operating
+system out there.
