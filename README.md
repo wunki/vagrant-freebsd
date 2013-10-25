@@ -25,11 +25,12 @@ Your virtualbox works best with the following settings:
 - System -> Acceleration -> **VT/x/AMD-V**
 - System -> Acceleration -> **Enable Nested Paging**
 - Storage -> Attach a **.vdi** disk (this one we can minimize later)
-- Audio -> Disable
 - Network -> Adapter 1 -> Advanced -> Adapter Type -> **Paravirtualized Network (virtio-net)**
 - Network -> Adapter 2 -> Advanced -> Attached to -> **Host-Only Adapter**
 - Network -> Adapter 2 -> Advanced -> Adapter Type -> **Paravirtualized Network (virtio-net)**
-- USB -> Disable
+
+I would also recommend to disable all the things you are not using, such as
+*audio* and *usb*.
 
 ## Build a Custom box
 
