@@ -66,9 +66,6 @@ fetch -o /etc/motd https://raw.github.com/wunki/vagrant-freebsd/master/etc/motd
 # Remove the history
 cat /dev/null > /root/.history
 
-# Clean packages
-pkg clean -y
-
 # Empty out tmp directory
 rm -rf /tmp/*
 
