@@ -1,12 +1,5 @@
 #!/bin/sh
 
-# TODO - Restorte the pkg configuration to default
-# TODO - Don't show the boot menu
-# TODO - Cleanup pkg's after installation
-# TODO - Destroy all history
-# TODO - Minimize disk space
-# TODO - Edit the MOTD (/etc/motd)
-
 # Install the pkg management tool
 pkg_add -r pkg
 
