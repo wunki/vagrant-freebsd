@@ -1,5 +1,9 @@
 #!/bin/sh
 
+################################################################################
+# PACKAGE INSTALLATION
+################################################################################
+
 # Install the pkg management tool
 pkg_add -r pkg
 
@@ -22,6 +26,10 @@ pkg install -y virtualbox-ose-additions
 pkg install -y bash
 pkg install -y sudo
 
+################################################################################
+# Configuration
+################################################################################
+
 # Create the vagrant user
 pw useradd -n vagrant -s /usr/local/bin/bash -m -G wheel -h 0 <<EOP
 vagrant
@@ -29,8 +37,6 @@ EOP
 
 # Enable sudo for this user
 echo "%vagrant ALL=(ALL) NOPASSWD: ALL" >> /usr/local/etc/sudoers
-
-# TODO: Set `UseDNS` to no for SSH
 
 # Authorize vagrant to login without a key
 mkdir /home/vagrant/.ssh
@@ -53,4 +59,9 @@ fetch -o /boot/loader.conf https://raw.github.com/wunki/vagrant-freebsd/master/b
 # motd
 fetch -o /etc/motd https://raw.github.com/wunki/vagrant-freebsd/master/etc/motd
 
-# cleanup
+################################################################################
+# CLEANUP
+################################################################################
+
+# Remove the history
+cat /dev/null /root/.history
