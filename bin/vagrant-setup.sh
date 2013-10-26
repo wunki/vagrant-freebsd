@@ -19,8 +19,6 @@ sed -i '' -e 's/http:\/\/pkg.freebsd.org\/${ABI}\/latest/http:\/\/pkg.wunki.org\
 pkg update
 pkg upgrade -y
 
-# Default package site is: http://pkg.freebsd.org/${ABI}/latest
-
 # Install required packages
 pkg install -y virtualbox-ose-additions
 pkg install -y bash
@@ -58,6 +56,9 @@ fetch -o /boot/loader.conf https://raw.github.com/wunki/vagrant-freebsd/master/b
 
 # motd
 fetch -o /etc/motd https://raw.github.com/wunki/vagrant-freebsd/master/etc/motd
+
+# restore the original pkg.conf
+fetch -o /usr/local/etc/pkg.conf https://raw.github.com/wunki/vagrant-freebsd/master/usr/local/etc/pkg.conf
 
 ################################################################################
 # CLEANUP

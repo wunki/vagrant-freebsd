@@ -1,5 +1,7 @@
 * FreeBSD on Vagrant
-** TODO Restore the pkg configuration to default
+** DONE Restore the pkg configuration to default
+   CLOSED: [2013-10-26 Sat 11:47]
+   - State "DONE"       from "TODO"       [2013-10-26 Sat 11:47]
 We are setting the pkg site to the wunki server. This should be restored to
 default.
 ** DONE Don't show the boot menu
