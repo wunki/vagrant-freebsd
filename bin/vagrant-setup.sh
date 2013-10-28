@@ -20,9 +20,10 @@ pkg update
 pkg upgrade -y
 
 # Install required packages
-pkg install -y virtualbox-ose-additions
-pkg install -y bash
-pkg install -y sudo
+packages=(virtualbox-ose-additions bash sudo python)
+for p in "${packages[@]}"; do
+    pkg install -y $p
+done
 
 ################################################################################
 # Configuration
