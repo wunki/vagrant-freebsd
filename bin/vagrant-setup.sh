@@ -1,4 +1,23 @@
 #!/bin/sh
+################################################################################
+# CONFIG
+################################################################################
+
+# Packages which are pre-installed
+INSTALLED_PACKAGES=(virtualbox-ose-additions bash sudo python)
+
+# Configuration files
+MAKE_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/etc/make.conf"
+RC_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/etc/rc.conf"
+RESOLV_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/etc/resolv.conf"
+LOADER_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/boot/loader.conf"
+PKG_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/usr/local/etc/pkg.conf"
+
+# Message of the day
+MOTD="https://raw.github.com/wunki/vagrant-freebsd/master/etc/motd"
+
+# Private key of Vagrant (you probable don't want to change this)
+VAGRANT_PRIVATE_KEY="https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub"
 
 ################################################################################
 # PACKAGE INSTALLATION
@@ -8,7 +27,7 @@
 pkg_add -r pkg
 
 # make.conf
-fetch -o /etc/make.conf https://raw.github.com/wunki/vagrant-freebsd/master/etc/make.conf
+fetch -o /etc/make.conf $MAKE_CONF
 
 # convert pkg
 pkg2ng
@@ -20,8 +39,7 @@ pkg update
 pkg upgrade -y
 
 # Install required packages
-packages=(virtualbox-ose-additions bash sudo python)
-for p in "${packages[@]}"; do
+for p in "${INSTALLED_PACKAGES[@]}"; do
     pkg install -y $p
 done
 
@@ -43,23 +61,23 @@ touch /home/vagrant/.ssh/authorized_keys
 chown vagrant:vagrant /home/vagrant/.ssh
 
 # Get the public key and save it in the `authorized_keys`
-fetch -o /home/vagrant/.ssh/authorized_keys https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub
+fetch -o /home/vagrant/.ssh/authorized_keys $VAGRANT_PRIVATE_KEY
 chown vagrant:vagrant /home/vagrant/.ssh/authorized_keys
 
 # rc.conf
-fetch -o /etc/rc.conf https://raw.github.com/wunki/vagrant-freebsd/master/etc/rc.conf
+fetch -o /etc/rc.conf $RC_CONF
 
 # resolv.conf
-fetch -o /etc/resolv.conf https://raw.github.com/wunki/vagrant-freebsd/master/etc/resolv.conf
+fetch -o /etc/resolv.conf $RESOLV_CONF
 
 # loader.conf
-fetch -o /boot/loader.conf https://raw.github.com/wunki/vagrant-freebsd/master/boot/loader.conf
+fetch -o /boot/loader.conf $LOADER_CONF
 
 # motd
-fetch -o /etc/motd https://raw.github.com/wunki/vagrant-freebsd/master/etc/motd
+fetch -o /etc/motd $MOTD
 
 # restore the original pkg.conf
-fetch -o /usr/local/etc/pkg.conf https://raw.github.com/wunki/vagrant-freebsd/master/usr/local/etc/pkg.conf
+fetch -o /usr/local/etc/pkg.conf $PKG_CONF
 
 ################################################################################
 # CLEANUP
