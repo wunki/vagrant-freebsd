@@ -4,7 +4,7 @@
 ################################################################################
 
 # Packages which are pre-installed
-INSTALLED_PACKAGES=(virtualbox-ose-additions bash sudo python)
+INSTALLED_PACKAGES="virtualbox-ose-additions bash sudo python"
 
 # Configuration files
 MAKE_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/etc/make.conf"
@@ -39,8 +39,8 @@ pkg update
 pkg upgrade -y
 
 # Install required packages
-for p in "${INSTALLED_PACKAGES[@]}"; do
-    pkg install -y $p
+for p in $INSTALLED_PACKAGES; do
+    pkg install -y "$p"
 done
 
 ################################################################################
