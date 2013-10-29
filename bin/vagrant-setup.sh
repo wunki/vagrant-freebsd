@@ -83,12 +83,6 @@ fetch -o /usr/local/etc/pkg.conf $PKG_CONF
 # CLEANUP
 ################################################################################
 
-# Remove the history
-cat /dev/null > /root/.history
-
-# Empty out tmp directory
-rm -rf /tmp/*
-
 # Try to make it even smaller
 while true; do
     read -p "Would you like me to zero out all data to reduce box size? [y/N] " yn
@@ -99,8 +93,12 @@ while true; do
     esac
 done
 
+# Remove the history
+cat /dev/null > /root/.history
+
 # Empty out tmp directory
 rm -rf /tmp/*
+
 
 # DONE!
 echo "We are all done. Poweroff the box and package it up with Vagrant."
