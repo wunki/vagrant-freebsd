@@ -63,8 +63,8 @@ Attach the ISO as a CD and boot it. You can login with `root` and password
     mount_cd9660 /dev/cd0 /cdrom
     zfsinstall -d /dev/ada0 -u /cdrom/9.2-RELEAE-amd64 -s 1G
 
-When the installation is done, you can `poweroff` and remove the CD in the
-settings.
+When the installation is done, you can `poweroff` and **remove the CD from
+boot order in the settings.**
 
 ### Configuration
 
