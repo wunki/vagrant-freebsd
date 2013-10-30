@@ -4,7 +4,7 @@
 ################################################################################
 
 # Packages which are pre-installed
-INSTALLED_PACKAGES="virtualbox-ose-additions bash sudo python"
+INSTALLED_PACKAGES="virtualbox-ose-additions bash sudo"
 
 # Configuration files
 MAKE_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/etc/make.conf"
@@ -98,7 +98,6 @@ cat /dev/null > /root/.history
 
 # Empty out tmp directory
 rm -rf /tmp/*
-
 
 # DONE!
 echo "We are all done. Poweroff the box and package it up with Vagrant."
