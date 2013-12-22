@@ -12,6 +12,7 @@ RC_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/etc/rc.conf"
 RESOLV_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/etc/resolv.conf"
 LOADER_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/boot/loader.conf"
 PKG_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/usr/local/etc/pkg.conf"
+FBSD_REPOS_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/usr/local/etc/pkg/repos/FreeBSD.conf"
 
 # Message of the day
 MOTD="https://raw.github.com/wunki/vagrant-freebsd/master/etc/motd"
@@ -78,6 +79,10 @@ fetch -o /etc/motd $MOTD
 
 # restore the original pkg.conf
 fetch -o /usr/local/etc/pkg.conf $PKG_CONF
+
+# add the FreeBSD package repository
+mkdir -p /usr/local/etc/pkg/repos
+fetch -o /usr/local/etc/pkg/repos/FreeBSD.conf $FBSD_REPOS_CONF
 
 ################################################################################
 # CLEANUP
