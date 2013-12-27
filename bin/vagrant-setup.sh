@@ -37,6 +37,8 @@ cp /usr/local/etc/pkg.conf.sample /usr/local/etc/pkg.conf
 pkg update
 pkg upgrade -y
 
+# Remove PACKAGESITE from config file - deprecated in pkg 1.2
+sed -i -e '/PACKAGESITE/d' /usr/local/etc/pkg.conf
 # add the FreeBSD package repository
 mkdir -p /usr/local/etc/pkg/repos
 fetch -o /usr/local/etc/pkg/repos/FreeBSD.conf $FBSD_REPOS_CONF
