@@ -33,8 +33,13 @@ fetch -o /etc/make.conf $MAKE_CONF
 pkg2ng
 
 # Setup pkgng
+cp /usr/local/etc/pkg.conf.sample /usr/local/etc/pkg.conf
 pkg update
 pkg upgrade -y
+
+# add the FreeBSD package repository
+mkdir -p /usr/local/etc/pkg/repos
+fetch -o /usr/local/etc/pkg/repos/FreeBSD.conf $FBSD_REPOS_CONF
 
 # Install required packages
 for p in $INSTALLED_PACKAGES; do
@@ -74,9 +79,6 @@ fetch -o /boot/loader.conf $LOADER_CONF
 # motd
 fetch -o /etc/motd $MOTD
 
-# add the FreeBSD package repository
-mkdir -p /usr/local/etc/pkg/repos
-fetch -o /usr/local/etc/pkg/repos/FreeBSD.conf $FBSD_REPOS_CONF
 
 ################################################################################
 # CLEANUP
