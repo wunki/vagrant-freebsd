@@ -69,7 +69,6 @@ Create a new Virtual Machine with the following settings:
 - Storage -> Attach a **.vdi** disk (this one we can minimize later)
 - Network -> Adapter 1 -> Attached to -> NAT
 - Network -> Adapter 1 -> Advanced -> Adapter Type -> **Paravirtualized Network (virtio-net)**
-
 - Network -> Adapter 2 -> Advanced -> Attached to -> **Host-Only Adapter**
 - Network -> Adapter 2 -> Advanced -> Adapter Type -> **Paravirtualized Network (virtio-net)**
 
@@ -102,9 +101,11 @@ Get an IP adress:
 
     dhclient vtnet0
 
-Bootstrap pkg manager by typing `pkg`.
+Bootstrap pkg manager by typing:
 
-Github recently switched to new SSLv1.2 certificates which requires you to
+    pkg
+
+[Github recently switched to new SSLv1.2 certificates] which requires you to
 install the latest certificates. You can do so by fetching them from my own
 repository:
 
@@ -155,3 +156,4 @@ any improvements back to this repository.
 [9.2-RELEASE-amd64 special edition]: http://mfsbsd.vx.sk/
 [TODO.org]: https://github.com/wunki/vagrant-freebsd/blob/master/TODO.org
 [xironix freebsd]: https://github.com/xironix/freebsd-vagrant
+[Github recently switched to new SSLv1.2 certificates]: https://github.com/blog/1734-improving-our-ssl-setup

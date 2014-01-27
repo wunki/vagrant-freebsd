@@ -92,6 +92,12 @@ fetch -o /usr/local/etc/ezjail.conf $EZJAIL_CONF
 # CLEANUP
 ################################################################################
 
+# Clean up installed packages
+pkg clean -a -y
+
+# Remove the history
+cat /dev/null > /root/.history
+
 # Try to make it even smaller
 while true; do
     read -p "Would you like me to zero out all data to reduce box size? [y/N] " yn
@@ -102,14 +108,8 @@ while true; do
     esac
 done
 
-# Remove the history
-cat /dev/null > /root/.history
-
 # Empty out tmp directory
 rm -rf /tmp/*
-
-# Clean up installed packages
-pkg clean -a -y
 
 # DONE!
 echo "We are all done. Poweroff the box and package it up with Vagrant."
