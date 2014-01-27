@@ -104,5 +104,8 @@ cat /dev/null > /root/.history
 # Empty out tmp directory
 rm -rf /tmp/*
 
+# Clean up installed packages
+pkg clean -y
+
 # DONE!
 echo "We are all done. Poweroff the box and package it up with Vagrant."
