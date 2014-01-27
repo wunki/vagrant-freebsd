@@ -4,7 +4,7 @@
 ################################################################################
 
 # Packages which are pre-installed
-INSTALLED_PACKAGES="virtualbox-ose-additions bash sudo ezjail"
+INSTALLED_PACKAGES="ca_root_nss virtualbox-ose-additions bash sudo ezjail"
 
 # Configuration files
 MAKE_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/etc/make.conf"
@@ -27,25 +27,32 @@ VAGRANT_PRIVATE_KEY="https://raw.github.com/mitchellh/vagrant/master/keys/vagran
 # Install the pkg management tool
 pkg_add -r pkg
 
-# make.conf
-fetch -o /etc/make.conf $MAKE_CONF
-
-# convert pkg
-pkg2ng
+# TEMP: add the Wunki package repository with a fix for the SSL error from
+# Github. (SSL 1.2 library and certs)
+touch /usr/local/etc/pkg/repos/wunki.conf
+cat <<EOT >> /usr/local/etc/pkg/repos/wunki.conf
+wunki: {
+  url: "http://pkg.wunki.org/10_0-amd64-server-default",
+  enabled: yes
+}
+EOT
 
 # Setup pkgng
 cp /usr/local/etc/pkg.conf.sample /usr/local/etc/pkg.conf
 pkg update
 pkg upgrade -y
 
-# add the FreeBSD package repository
-mkdir -p /usr/local/etc/pkg/repos
-fetch -o /usr/local/etc/pkg/repos/FreeBSD.conf $FBSD_REPOS_CONF
-
 # Install required packages
 for p in $INSTALLED_PACKAGES; do
     pkg install -y "$p"
 done
+
+# Restore the FreeBSD package repository
+rm /usr/local/etc/pkg/repos/wunki.conf
+mkdir -p /usr/local/etc/pkg/repos
+fetch -o /usr/local/etc/pkg/repos/FreeBSD.conf $FBSD_REPOS_CONF
+
+pkg update
 
 ################################################################################
 # Configuration
@@ -67,6 +74,9 @@ chown vagrant:vagrant /home/vagrant/.ssh
 # Get the public key and save it in the `authorized_keys`
 fetch -o /home/vagrant/.ssh/authorized_keys $VAGRANT_PRIVATE_KEY
 chown vagrant:vagrant /home/vagrant/.ssh/authorized_keys
+
+# make.conf
+fetch -o /etc/make.conf $MAKE_CONF
 
 # rc.conf
 fetch -o /etc/rc.conf $RC_CONF
@@ -105,7 +115,7 @@ cat /dev/null > /root/.history
 rm -rf /tmp/*
 
 # Clean up installed packages
-pkg clean -y
+pkg clean -a -y
 
 # DONE!
 echo "We are all done. Poweroff the box and package it up with Vagrant."
