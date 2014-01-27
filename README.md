@@ -82,7 +82,7 @@ Attach the ISO as a CD and boot it. You can login with `root` and password
 `mfsroot`. After logging in, start the base installation with:
 
     mount_cd9660 /dev/cd0 /cdrom
-    zfsinstall -d /dev/ada0 -u /cdrom/9.2-RELEAE-amd64 -s 1G
+    zfsinstall -d /dev/ada0 -u /cdrom/10.0-RELEASE-amd64 -s 1G
 
 When the installation is done, you can `poweroff` and **remove the CD from
 boot order in the settings.**
@@ -101,6 +101,15 @@ Select your keyboard:
 Get an IP adress:
 
     dhclient vtnet0
+
+Bootstrap pkg manager by typing `pkg`.
+
+Github recently switched to new SSLv1.2 certificates which requires you to
+install the latest certificates. You can do so by fetching them from my own
+repository:
+
+    fetch http://pkg.wunki.org/10_0-amd64-server-default/All/ca_root_nss-3.15.3.1.txz
+    pkg add ca_root_nss-3.15.3.1.txz
 
 In your FreeBSD box, fetch the installation script:
 

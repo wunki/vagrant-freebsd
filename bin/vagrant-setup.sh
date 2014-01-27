@@ -24,11 +24,7 @@ VAGRANT_PRIVATE_KEY="https://raw.github.com/mitchellh/vagrant/master/keys/vagran
 # PACKAGE INSTALLATION
 ################################################################################
 
-# Install the pkg management tool
-pkg_add -r pkg
-
-# TEMP: add the Wunki package repository with a fix for the SSL error from
-# Github. (SSL 1.2 library and certs)
+# Use my own package repository to keep the size as small as possible.
 touch /usr/local/etc/pkg/repos/wunki.conf
 cat <<EOT >> /usr/local/etc/pkg/repos/wunki.conf
 wunki: {
