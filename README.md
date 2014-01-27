@@ -31,24 +31,42 @@ with ZFS by copying a single file.
 Simply copy the [Vagrantfile] from this repository to the project you want to
 run the VM from and you are done. The box will be downloaded for you.
 
+## Jails
+
+The box comes with a *cloned_interface* with IP address which can be used for
+jails. The range 10.0.2.21 - 10.0.2.30 is already configured for you with a
+proxy by pf to have internet connectivity in a jail. To start a new jail, all
+you have to do is:
+
+    ezjail-admin install
+    ezjail-admin create example.com 'lo1|10.0.2.21'
+    ezjail-admin start example.com
+
+    # Jump inside the jail
+    ezjail-admin console example.com
+
+If you want your jails started at boot, make sure to add `ezjail_enable="YES"`
+to `/etc/rc.conf`.
+
 ## Create your own FreeBSD Box
 
 This is for people who want to have their own customized box, instead of the
 box I made for you with the scripts in this repository.
 
-The FreeBSD boxse are build from the excellent [mfsBSD] site, namely the
-[9.2-RELEASE-amd64 special edition] ISO's. Download this ISO and create a new
-virtual machine.
+The FreeBSD boxse are build from the excellent [mfsBSD] site. Download either
+the 9.2 or 10.0 special edition ISO and create a new virtual machine.
 
 ### Virtualbox Settings
 
-Your virtualbox works best with the following settings:
+Create a new Virtual Machine with the following settings:
 
 - System -> Motherboard -> **Hardware clock in UTC time**
 - System -> Acceleration -> **VT/x/AMD-V**
 - System -> Acceleration -> **Enable Nested Paging**
 - Storage -> Attach a **.vdi** disk (this one we can minimize later)
+- Network -> Adapter 1 -> Attached to -> NAT
 - Network -> Adapter 1 -> Advanced -> Adapter Type -> **Paravirtualized Network (virtio-net)**
+
 - Network -> Adapter 2 -> Advanced -> Attached to -> **Host-Only Adapter**
 - Network -> Adapter 2 -> Advanced -> Adapter Type -> **Paravirtualized Network (virtio-net)**
 

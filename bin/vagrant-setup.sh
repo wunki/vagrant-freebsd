@@ -4,7 +4,7 @@
 ################################################################################
 
 # Packages which are pre-installed
-INSTALLED_PACKAGES="virtualbox-ose-additions bash sudo"
+INSTALLED_PACKAGES="virtualbox-ose-additions bash sudo ezjail"
 
 # Configuration files
 MAKE_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/etc/make.conf"
@@ -12,6 +12,7 @@ RC_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/etc/rc.conf"
 RESOLV_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/etc/resolv.conf"
 LOADER_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/boot/loader.conf"
 FBSD_REPOS_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/usr/local/etc/pkg/repos/FreeBSD.conf"
+EZJAIL_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/usr/local/etc/pkg/repos/FreeBSD.conf"
 
 # Message of the day
 MOTD="https://raw.github.com/wunki/vagrant-freebsd/master/etc/motd"
@@ -80,6 +81,9 @@ fetch -o /boot/loader.conf $LOADER_CONF
 
 # motd
 fetch -o /etc/motd $MOTD
+
+# ezjail
+fetch -o /usr/local/etc/ezjail.conf $EZJAIL_CONF
 
 
 ################################################################################
