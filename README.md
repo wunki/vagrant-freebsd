@@ -1,3 +1,5 @@
+**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
+
 # Freebsd on Vagrant
 
 <img src="https://wunki.org/images/freebsd-icon.png" align="right" />
@@ -17,12 +19,13 @@ with ZFS by copying a single file.
 
 - [Freebsd on Vagrant](#freebsd-on-vagrant)
 	- [Quickstart](#quickstart)
+	- [Jails](#jails)
 	- [Create your own FreeBSD Box](#create-your-own-freebsd-box)
 		- [Virtualbox Settings](#virtualbox-settings)
 		- [Installation from msfBSD ISO](#installation-from-msfbsd-iso)
 		- [Configuration](#configuration)
 		- [Package for Vagrant](#package-for-vagrant)
-	- [What's Next?](#what's-next)
+	- [What's Next?](#whats-next)
 	- [Credits](#credits)
 	- [License](#license)
     
