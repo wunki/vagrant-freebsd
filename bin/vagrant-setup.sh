@@ -11,7 +11,7 @@ MAKE_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/etc/make.conf"
 RC_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/etc/rc.conf"
 RESOLV_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/etc/resolv.conf"
 LOADER_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/boot/loader.conf"
-PKG_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/usr/local/etc/pkg.conf"
+FBSD_REPOS_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/usr/local/etc/pkg/repos/FreeBSD.conf"
 
 # Message of the day
 MOTD="https://raw.github.com/wunki/vagrant-freebsd/master/etc/motd"
@@ -34,9 +34,14 @@ pkg2ng
 
 # Setup pkgng
 cp /usr/local/etc/pkg.conf.sample /usr/local/etc/pkg.conf
-sed -i '' -e 's/http:\/\/pkg.freebsd.org\/${ABI}\/latest/http:\/\/pkg.wunki.org\/9_2-amd64-vagrant-default/g' /usr/local/etc/pkg.conf
 pkg update
 pkg upgrade -y
+
+# Remove PACKAGESITE from config file - deprecated in pkg 1.2
+sed -i -e '/PACKAGESITE/d' /usr/local/etc/pkg.conf
+# add the FreeBSD package repository
+mkdir -p /usr/local/etc/pkg/repos
+fetch -o /usr/local/etc/pkg/repos/FreeBSD.conf $FBSD_REPOS_CONF
 
 # Install required packages
 for p in $INSTALLED_PACKAGES; do
@@ -76,8 +81,6 @@ fetch -o /boot/loader.conf $LOADER_CONF
 # motd
 fetch -o /etc/motd $MOTD
 
-# restore the original pkg.conf
-fetch -o /usr/local/etc/pkg.conf $PKG_CONF
 
 ################################################################################
 # CLEANUP
