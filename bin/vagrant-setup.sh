@@ -41,13 +41,11 @@ pkg upgrade -y
 
 # Install required packages
 for p in $INSTALLED_PACKAGES; do
-    pkg install -y "$p"
+    pkg install -y -r wunki "$p"
 done
 
-# Restore the FreeBSD package repository
+# Remove the wunki repository
 rm /usr/local/etc/pkg/repos/wunki.conf
-fetch -o /usr/local/etc/pkg/repos/FreeBSD.conf $FBSD_REPOS_CONF
-
 pkg update
 
 ################################################################################
