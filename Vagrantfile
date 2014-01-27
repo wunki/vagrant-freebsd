@@ -1,8 +1,8 @@
 # -*- mode: ruby; -*-
 Vagrant.configure("2") do |config|
   config.vm.guest = :freebsd
-  config.vm.box_url = "https://wunki.org/files/freebsd-9.2-amd64-wunki.box"
-  config.vm.box = "freebsd-9.2-amd64-wunki"
+  config.vm.box_url = "https://wunki.org/files/freebsd-10.0-amd64-wunki.box"
+  config.vm.box = "freebsd-10.0-amd64-wunki"
   config.vm.network "private_network", ip: "10.0.1.10"
 
   # Use NFS as a shared folder
