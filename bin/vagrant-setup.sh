@@ -25,6 +25,7 @@ VAGRANT_PRIVATE_KEY="https://raw.github.com/mitchellh/vagrant/master/keys/vagran
 ################################################################################
 
 # Use my own package repository to keep the size as small as possible.
+mkdir -p /usr/local/etc/pkg/repos
 touch /usr/local/etc/pkg/repos/wunki.conf
 cat <<EOT >> /usr/local/etc/pkg/repos/wunki.conf
 wunki: {
@@ -45,7 +46,6 @@ done
 
 # Restore the FreeBSD package repository
 rm /usr/local/etc/pkg/repos/wunki.conf
-mkdir -p /usr/local/etc/pkg/repos
 fetch -o /usr/local/etc/pkg/repos/FreeBSD.conf $FBSD_REPOS_CONF
 
 pkg update
