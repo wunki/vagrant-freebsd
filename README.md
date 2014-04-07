@@ -56,7 +56,7 @@ to `/etc/rc.conf`.
 This is for people who want to have their own customized box, instead of the
 box I made for you with the scripts in this repository.
 
-The FreeBSD boxse are build from the excellent [mfsBSD] site. Download either
+The FreeBSD boxes are built from the excellent [mfsBSD] site. Download either
 the 9.2 or 10.0 special edition ISO and create a new virtual machine.
 
 ### Virtualbox Settings
