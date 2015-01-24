@@ -29,7 +29,7 @@ mkdir -p /usr/local/etc/pkg/repos
 touch /usr/local/etc/pkg/repos/wunki.conf
 cat <<EOT >> /usr/local/etc/pkg/repos/wunki.conf
 wunki: {
-  url: "http://pkg.wunki.org/10_0-amd64-server-default",
+  url: "http://pkg.wunki.org/10_1-amd64-server-default",
   enabled: yes
 }
 EOT
