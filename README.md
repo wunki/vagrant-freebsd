@@ -37,12 +37,12 @@ run the VM from and you are done. The box will be downloaded for you.
 ## Jails
 
 The box comes with a *cloned_interface* with IP address which can be used for
-jails. The range 10.0.2.21 - 10.0.2.30 is already configured for you with a
-proxy by pf to have internet connectivity in a jail. To start a new jail, all
-you have to do is:
+jails. The range 172.23.0.1/16 is already configured for you with a proxy by
+pf to have internet connectivity in a jail. To start a new jail, all you have
+to do is:
 
     ezjail-admin install
-    ezjail-admin create example.com 'lo1|10.0.2.21'
+    ezjail-admin create example.com 'lo1|172.23.0.1'
     ezjail-admin start example.com
 
     # Jump inside the jail
@@ -57,7 +57,7 @@ This is for people who want to have their own customized box, instead of the
 box I made for you with the scripts in this repository.
 
 The FreeBSD boxes are built from the excellent [mfsBSD] site. Download either
-the 9.2 or 10.0 special edition ISO and create a new virtual machine.
+the 9.2 or 10.1 special edition ISO and create a new virtual machine.
 
 ### Virtualbox Settings
 
@@ -109,7 +109,7 @@ Bootstrap pkg manager by typing:
 install the latest certificates. You can do so by fetching them from my own
 repository:
 
-    fetch http://pkg.wunki.org/10_0-amd64-server-default/All/ca_root_nss-3.15.3.1.txz
+    fetch http://pkg.wunki.org/10_0-amd64-server-default/All/ca_root_nss-3.17.3_1.txz
     pkg add ca_root_nss-3.15.3.1.txz
 
 In your FreeBSD box, fetch the installation script:
