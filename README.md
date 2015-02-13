@@ -22,7 +22,7 @@ with ZFS by copying a single file.
 	- [Jails](#jails)
 	- [Create your own FreeBSD Box](#create-your-own-freebsd-box)
 		- [Virtualbox Settings](#virtualbox-settings)
-		- [Installation from msfBSD ISO](#installation-from-msfbsd-iso)
+		- [Installation from mfsBSD ISO](#installation-from-mfsbsd-iso)
 		- [Configuration](#configuration)
 		- [Package for Vagrant](#package-for-vagrant)
 	- [What's Next?](#whats-next)
@@ -75,11 +75,12 @@ Create a new Virtual Machine with the following settings:
 I would also recommend to disable all the things you are not using, such as
 *audio* and *usb*.
 
-### Installation from msfBSD ISO
+### Installation from mfsBSD ISO
 
 Attach the ISO as a CD and boot it. You can login with `root` and password
 `mfsroot`. After logging in, start the base installation with:
 
+    mkdir /cdrom
     mount_cd9660 /dev/cd0 /cdrom
     zfsinstall -d /dev/ada0 -u /cdrom/10.0-RELEASE-amd64 -s 1G
 
