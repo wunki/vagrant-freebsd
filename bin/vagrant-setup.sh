@@ -4,7 +4,7 @@
 ################################################################################
 
 # Packages which are pre-installed
-INSTALLED_PACKAGES="pkg-1.5.6 ca_root_nss-3.20 virtualbox-ose-additions-4.3.30 bash-4.3.42 sudo-1.8.14p3 iocage-1.7.3"
+INSTALLED_PACKAGES="pkg-1.5.6 indexinfo-0.2.3 ca_root_nss-3.20 virtualbox-ose-additions-4.3.30 bash-4.3.42 sudo-1.8.14p3 iocage-1.7.3"
 
 # Configuration files
 MAKE_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/etc/make.conf"
@@ -29,7 +29,10 @@ cd /tmp/pkg
 # Install required packages
 for p in $INSTALLED_PACKAGES; do
     fetch -o /tmp/$p https://raw.github.com/wunki/vagrant-freebsd/master/pkg/$p.txz
-    pkg install /tmp/pkg/$p
+done
+
+for p in $INSTALLED_PACKAGES; do
+    pkg add /tmp/pkg/$p
 done
 
 ################################################################################
