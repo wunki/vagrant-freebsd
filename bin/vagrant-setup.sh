@@ -79,8 +79,8 @@ fetch -o /etc/pf.conf $PF_CONF
 # CLEANUP
 ################################################################################
 
-# Clean up installed packages
-pkg clean -a -y
+# Remove packages
+rm -rf /tmp/pkg
 
 # Remove the history
 cat /dev/null > /root/.history
