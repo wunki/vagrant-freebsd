@@ -108,8 +108,8 @@ Bootstrap pkg manager by typing:
 install the latest certificates. You can do so by fetching them from my own
 repository:
 
-    fetch http://pkg.wunki.org/10_2-amd64-server-default/All/ca_root_nss-3.17.3_1.txz
-    pkg add ca_root_nss-3.15.3.1.txz
+    fetch --no-verify-peer https://raw.github.com/wunki/vagrant-freebsd/master/pkg/ca_root_nss-3.20.txz
+    pkg add ca_root_nss-3.20.txz
 
 In your FreeBSD box, fetch the installation script:
 
