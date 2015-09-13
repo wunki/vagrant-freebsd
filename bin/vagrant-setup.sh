@@ -32,7 +32,7 @@ for p in $INSTALLED_PACKAGES; do
 done
 
 for p in $INSTALLED_PACKAGES; do
-    pkg add /tmp/pkg/$p
+    pkg add /tmp/pkg/$p.txz
 done
 
 ################################################################################
