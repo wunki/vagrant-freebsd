@@ -4,14 +4,13 @@
 ################################################################################
 
 # Packages which are pre-installed
-INSTALLED_PACKAGES="ca_root_nss virtualbox-ose-additions bash sudo ezjail"
+INSTALLED_PACKAGES="pkg-1.5.6 ca_root_nss-3.20 virtualbox-ose-additions-4.3.30 bash-4.3.42 sudo-1.8.14p3 iocage-1.7.3"
 
 # Configuration files
 MAKE_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/etc/make.conf"
 RC_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/etc/rc.conf"
 RESOLV_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/etc/resolv.conf"
 LOADER_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/boot/loader.conf"
-EZJAIL_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/usr/local/etc/ezjail.conf"
 PF_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/etc/pf.conf"
 
 # Message of the day
@@ -24,29 +23,14 @@ VAGRANT_PRIVATE_KEY="https://raw.github.com/mitchellh/vagrant/master/keys/vagran
 # PACKAGE INSTALLATION
 ################################################################################
 
-# Use my own package repository to keep the size as small as possible.
-mkdir -p /usr/local/etc/pkg/repos
-touch /usr/local/etc/pkg/repos/wunki.conf
-cat <<EOT >> /usr/local/etc/pkg/repos/wunki.conf
-wunki: {
-  url: "http://pkg.wunki.org/10_1-amd64-server-default",
-  enabled: yes
-}
-EOT
-
-# Setup pkgng
-cp /usr/local/etc/pkg.conf.sample /usr/local/etc/pkg.conf
-pkg update
-pkg upgrade -y
+mkdir /tmp/pkg
+cd /tmp/pkg
 
 # Install required packages
 for p in $INSTALLED_PACKAGES; do
-    pkg install -y -r wunki "$p"
+    fetch -o /tmp/$p https://raw.github.com/wunki/vagrant-freebsd/pkg/$p.txz
+    pkg install /tmp/pkg/$p
 done
-
-# Remove the wunki repository
-rm /usr/local/etc/pkg/repos/wunki.conf
-pkg update
 
 ################################################################################
 # Configuration
@@ -84,11 +68,8 @@ fetch -o /boot/loader.conf $LOADER_CONF
 # motd
 fetch -o /etc/motd $MOTD
 
-# ezjail
-fetch -o /usr/local/etc/ezjail.conf $EZJAIL_CONF
-
 # pf
-fetch -o /usr/local/etc/pf.conf $PF_CONF
+fetch -o /etc/pf.conf $PF_CONF
 
 
 ################################################################################

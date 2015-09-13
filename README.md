@@ -1,5 +1,3 @@
-**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
-
 # Freebsd on Vagrant
 
 <img src="https://wunki.org/images/freebsd-icon.png" align="right" />
@@ -56,12 +54,12 @@ to `/etc/rc.conf`.
 This is for people who want to have their own customized box, instead of the
 box I made for you with the scripts in this repository.
 
-The FreeBSD boxes are built from the excellent [mfsBSD] site. Download either
-the 9.2 or 10.1 special edition ISO and create a new virtual machine.
+The FreeBSD boxes are built from the excellent [mfsBSD] site. Download the
+10.2 special edition ISO and create a new virtual machine.
 
 ### Virtualbox Settings
 
-Create a new Virtual Machine with the following settings:
+Create a new Virtual Machine (minimal 1024MB Memory) with the following settings:
 
 - System -> Motherboard -> **Hardware clock in UTC time**
 - System -> Acceleration -> **VT/x/AMD-V**
@@ -82,7 +80,7 @@ Attach the ISO as a CD and boot it. You can login with `root` and password
 
     mkdir /cdrom
     mount_cd9660 /dev/cd0 /cdrom
-    zfsinstall -d /dev/ada0 -u /cdrom/10.0-RELEASE-amd64 -s 1G
+    zfsinstall -d /dev/ada0 -u /cdrom/10.2-RELEASE-amd64 -p zroot -s 1G
 
 When the installation is done, you can `poweroff` and **remove the CD from
 boot order in the settings.**
@@ -110,7 +108,7 @@ Bootstrap pkg manager by typing:
 install the latest certificates. You can do so by fetching them from my own
 repository:
 
-    fetch http://pkg.wunki.org/10_0-amd64-server-default/All/ca_root_nss-3.17.3_1.txz
+    fetch http://pkg.wunki.org/10_2-amd64-server-default/All/ca_root_nss-3.17.3_1.txz
     pkg add ca_root_nss-3.15.3.1.txz
 
 In your FreeBSD box, fetch the installation script:
