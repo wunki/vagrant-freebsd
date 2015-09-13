@@ -28,7 +28,7 @@ cd /tmp/pkg
 
 # Install required packages
 for p in $INSTALLED_PACKAGES; do
-    fetch -o /tmp/$p https://raw.github.com/wunki/vagrant-freebsd/master/pkg/$p.txz
+    fetch -o /tmp/pkg/$p.txz https://raw.github.com/wunki/vagrant-freebsd/master/pkg/$p.txz
 done
 
 for p in $INSTALLED_PACKAGES; do
