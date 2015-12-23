@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder ".", "/vagrant", :nfs => true, id: "vagrant-root"
 
   config.vm.provider :virtualbox do |vb, override|
-    override.vm.box_url = "https://petar.xyz/files/freebsd-10.2-amd64-wunki.box"
+    override.vm.box_url = "https://wunki.org/files/freebsd-10.2-amd64-wunki.box"
     override.vm.box = "freebsd-10.2-amd64-wunki"
 
     # vb.customize ["startvm", :id, "--type", "gui"]
